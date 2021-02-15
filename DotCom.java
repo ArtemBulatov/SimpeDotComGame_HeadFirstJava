@@ -1,32 +1,32 @@
 package SimpleDotComGame;
 
+import java.util.ArrayList;
+
 public class DotCom {
-    private int[] locationCells;
+    private ArrayList<String> locationCells;
     private int numOfHits = 0;
     private String name;
 
     public String checkYourself(String stringGuess) {
-        int guess = Integer.parseInt(stringGuess);
         String result = "Мимо";
 
-        for (int cell : locationCells) {
-            if (guess == cell) {
+        int index = locationCells.indexOf(stringGuess);
+        if (index>=0){
+            locationCells.remove(index);
+
+            if (locationCells.isEmpty()){
+                result = "Потопил";
+                System.out.println("Вы потопили " + name);
+            }
+            else {
                 result = "Попал";
-                numOfHits++;
-                break;
             }
         }
-
-        if (numOfHits == locationCells.length) {
-            result = "Потопил";
-        }
-
-        System.out.println(result);
 
         return result;
     }
 
-    public void setLocationCells(int[] locs) {
+    public void setLocationCells(ArrayList<String> locs) {
         locationCells = locs;
     }
 

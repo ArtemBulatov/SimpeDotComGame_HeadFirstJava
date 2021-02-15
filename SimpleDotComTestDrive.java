@@ -1,6 +1,7 @@
 package SimpleDotComGame;
 
-import SimpleDotComGame.DotCom;
+
+import java.util.ArrayList;
 
 public class SimpleDotComTestDrive {
 
@@ -8,10 +9,13 @@ public class SimpleDotComTestDrive {
 
         DotCom dot = new DotCom();
 
-        int[] locations = {2,3,4};
+        ArrayList<String> locations = new ArrayList<>();
+        locations.add("A1");
+        locations.add("A2");
+        locations.add("A3");
         dot.setLocationCells(locations);
 
-        String userGuess = "2";
+        String userGuess = "A3";
         String result = dot.checkYourself(userGuess);
         String testResult = "Неудача";
 
